@@ -2,7 +2,7 @@
 
 # Start everything in one terminal
 run:
-	go run cmd/server/main.go
+	go run cmd/main.go
 
 tidy:
 	go mod tidy
