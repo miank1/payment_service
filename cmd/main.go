@@ -61,16 +61,14 @@ func main() {
 		})
 	})
 
-	api := r.Group("/api/v1")
+	api := r.Group("/payments")
 
-	protected := api.Group("")
-	protected.Use(middleware.JWTAuth())
-
-	protected.GET("/payments/:id", paymentHandler.GetPayment)
-
-	internal := api.Group("/internal")
-	internal.POST("/payments", paymentHandler.CreatePayment)
-	internal.PATCH("/payments/:id/status", paymentHandler.UpdatePaymentStatus)
+	api.Use(middleware.JWTAuth())
+	{
+		api.GET("/:id", paymentHandler.GetPayment)
+		api.POST("", paymentHandler.CreatePayment)
+		api.PATCH("/:id/status", paymentHandler.UpdatePaymentStatus)
+	}
 
 	port := config.GetEnv("PORT", "8085")
 
