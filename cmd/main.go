@@ -7,15 +7,13 @@ import (
 	models "payment_service/internal/model"
 	"payment_service/internal/repository"
 	"payment_service/internal/service"
-	"payment_service/pkg/config"
-	"payment_service/pkg/logger"
-
-	"payment_service/pkg/db"
-
-	"payment_service/pkg/middleware"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
+	"github.com/miank1/ecommerce_backend/pkg/config"
+	"github.com/miank1/ecommerce_backend/pkg/db"
+	"github.com/miank1/ecommerce_backend/pkg/logger"
+	"github.com/miank1/ecommerce_backend/pkg/middleware"
 )
 
 func main() {
